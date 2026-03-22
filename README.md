@@ -33,13 +33,7 @@ The current processing route is:
 
 `Data/Raw_Data -> Data/Data_Process_Output/Step1_Workstep -> Data/Data_Process_Output/Step2_CellLevel -> Data/Data_Process_Output/Step3_ByPulse -> Data/Data_Process_Output/Step4_SelectedFeatures -> Data/Model_Output`
 
-The current working dataset has already been cleaned for this repository version:
-
-- cells listed in the exclusion list were removed from the working dataset
-- random-SOC files were removed from the working dataset
-- `SOC TEST RANDOM` was removed from the current Step3 and Step4 workflow
-
-For the remaining fixed-SOC workflow, the main extraction logic of Step1-Step3 remains aligned with the original historical scripts.
+The current workflow focuses on the fixed-SOC processing and modeling route used in this repository version.
 
 ## 4. Repository Structure
 
@@ -127,6 +121,29 @@ This folder contains the model-building code.
 
 ## 6. Data Availability and Placement
 
+The public dataset is available at Zenodo:
+
+- https://zenodo.org/records/19158579
+
+The Zenodo record provides the data as downloadable archives. After downloading, extract the archives and place the extracted folders into this repository using the expected relative paths.
+
+The target layout is:
+
+```text
+Data/
+|-- Raw_Data/
+|-- Data_Process_Output/
+`-- Model_Output/
+```
+
+In practice:
+
+- extract `Raw_Data.zip` to `Data/Raw_Data/`
+- extract `Data_Process_Output.zip` to `Data/Data_Process_Output/`
+- extract `Model_Output.zip` to `Data/Model_Output/`
+
+The code in this repository assumes this relative folder structure. If the downloaded archives are extracted elsewhere first, move the extracted folders to the locations above before running the workflow.
+
 The repository expects the working raw data to be placed under:
 
 - `Data/Raw_Data/`
@@ -140,12 +157,6 @@ The processed outputs are generated under:
 
 If data are distributed separately from GitHub, they should be unpacked and placed into the folder structure above before running the code.
 
-For the current repository version:
-
-- random-SOC-related raw files are not part of the working dataset
-- Step3 no longer generates `SOC TEST RANDOM`
-- Step4 no longer uses `SOC TEST RANDOM`
-
 ## 7. Code Availability
 
 All code needed for the current processing and modeling workflow is included in this repository under:
@@ -157,33 +168,57 @@ The processing scripts were simplified into one script per step so that each fil
 
 ## 8. Computational Environment
 
-Recommended environment:
+Two environments were used in this project.
 
-- operating system: Windows
-- shell: PowerShell
-- Python: 3.10 or newer
+### 8.1 Data-processing environment
 
-Common Python packages used in this repository include:
+The data-processing workflow was run locally in a Windows environment with PowerShell.
+
+Main package versions:
 
 ```text
-numpy
-pandas
-openpyxl
-scikit-learn
-xgboost
-torch
+numpy==2.3.4
+pandas==2.3.3
+openpyxl==3.1.5
+scikit-learn==1.6.1
+matplotlib==3.10.7
 ```
 
-Notes:
+### 8.2 Model environment
 
-- `xgboost` is required only when `xgb` is used in the selected model list
-- `torch` is required only for deep-learning model options such as transformer-based runs
+The model code was run on an HPC system.
+
+The PyTorch environment was loaded with:
+
+```bash
+module purge
+module load PyTorch/2.1.2-foss-2023a-CUDA-12.1.1
+source /mimer/NOBACKUP/groups/naiss2025-22-468/bamm_venv_gpu/bin/activate
+```
+
+Main package versions in the model environment:
+
+```text
+numpy==1.25.1
+pandas==2.0.3
+scikit-learn==1.8.0
+xgboost==3.2.0
+torch==2.1.2
+```
+
+The root-level `requirements.txt` records both environments in two separate sections for reference.
 
 ## 9. Reproducibility Workflow
 
 ### 9.1 Prepare the raw-data folder
 
-Place the raw Excel workbooks into:
+Download the dataset archives from the Zenodo record above, extract them, and place the extracted folders so that the repository contains:
+
+- `Data/Raw_Data/`
+- `Data/Data_Process_Output/`
+- `Data/Model_Output/`
+
+At minimum, place the raw Excel workbooks into:
 
 - `Data/Raw_Data/`
 
