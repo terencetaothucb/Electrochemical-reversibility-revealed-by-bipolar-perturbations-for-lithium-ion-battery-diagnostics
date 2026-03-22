@@ -28,14 +28,6 @@ In practice:
 - runtime folders such as `__pycache__` are not part of the documented structure
 - large result archives are not fully included; `Data/Model_Output/` currently contains one example result folder only
 
-## Manuscript Information
-
-- Manuscript title: `Electrochemical reversibility revealed by bipolar perturbations for chemistry-inclusive retired lithium-ion battery diagnostics`
-- This dataset was used to support chemistry-inclusive diagnostic analysis of retired lithium-ion batteries under bipolar perturbation testing. In the manuscript, the data are used to extract pulse-response features, quantify electrochemical reversibility, and benchmark data-driven models for state-of-health prediction across multiple chemistries, capacities, formats, and application backgrounds.
-- The dataset summarized in the manuscript contains 673 retired commercial lithium-ion batteries and 1,052,410 data samples in total.
-- The battery set spans 9 material-capacity groups: NMC 811 (15 Ah), NMC 622 (21 Ah), LMO (10, 24, 25, and 26 Ah), and LFP (20, 35, and 68 Ah).
-- The experiments were organized with 10 pulse-width conditions (`nW=10`), 18 SOC test points (`nSOC=18`), and 10 pulse-related test points (`nP=10`), as summarized in Table 1 of the manuscript.
-
 ## 1. Project Overview
 
 The project is organized into two main technical parts:
