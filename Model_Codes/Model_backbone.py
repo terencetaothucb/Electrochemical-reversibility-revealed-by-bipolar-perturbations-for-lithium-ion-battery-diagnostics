@@ -58,7 +58,6 @@ except Exception:
 # 1) Feature groups + combos + builder
 # ============================================================
 
-#################
 FEATURE_GROUPS: Dict[str, List[str]] = {
     "fai_irrev": [
         "fai_irrev_0.5C", "fai_irrev_1C", "fai_irrev_1.5C", "fai_irrev_2C", "fai_irrev_2.5C",
@@ -74,7 +73,7 @@ FEATURE_COMBOS: Dict[str, List[str]] = {
     "Reff_Only": ["Reff"],
     "fai_irrev_Reff": ["fai_irrev", "Reff"],
 }
-#########################
+
 def _unique_preserve_order(xs: List[str]) -> List[str]:
     seen = set()
     out = []

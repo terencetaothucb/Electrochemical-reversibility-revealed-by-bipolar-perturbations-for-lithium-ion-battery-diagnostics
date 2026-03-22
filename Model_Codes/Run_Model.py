@@ -14,7 +14,10 @@ from __future__ import annotations
 import copy
 from pathlib import Path
 
-import PulseBat.Model_Codes.Model_backbone as bench
+try:
+    import PulseBat.Model_Codes.Model_backbone as bench
+except ImportError:
+    import Model_backbone as bench
 
 
 DEFAULT_DATA_ROOT = Path(r"E:\Datasets\PulseBat_all\Data\Data_Process_Output\Step4_SelectedFeatures")
