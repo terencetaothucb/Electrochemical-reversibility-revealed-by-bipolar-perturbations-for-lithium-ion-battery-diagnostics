@@ -1,6 +1,4 @@
-# PulseBat: Data Processing and Modeling Workflow for Bipolar-Perturbation Battery Diagnostics
-
-This repository contains the data-processing and modeling workflow for the manuscript:
+# This repository contains the data-processing and modeling workflow for the manuscript:
 
 **Electrochemical reversibility revealed by bipolar perturbations for chemistry-inclusive retired lithium-ion battery diagnostics**
 
