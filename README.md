@@ -1,6 +1,6 @@
 # This repository contains the data-processing, modeling, experiments, and benchmarking workflow for manuscript:
 
-**Electrochemical reversibility revealed by bipolar perturbations for lithium-ion battery diagnostics**
+**Revealing irreversible electrochemical response via active symmetry-constrained electrical perturbation sensing**
 
 **The public dataset is available at Zenodo:**
 
