@@ -1,6 +1,6 @@
 # This repository contains the data-processing, modeling, experiments, and benchmarking workflow for manuscript:
 
-**Revealing irreversible electrochemical response via active symmetry-constrained electrical perturbation sensing**
+**A scalable electrochemical observable for battery degradation revealed by sym-metric bipolar perturbations**
 
 **The public dataset is available at Zenodo:**
 
